@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="search">
+    <h1>Build the city you always dreamed of.</h1>
+        <%= form_with url: "", method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find your City"
+        %>
+        <%= submit_tag "Find your City", class: "btn btn-success" %>
+      <% end %>
+  </div>
+</div>
