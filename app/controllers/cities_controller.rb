@@ -1,4 +1,13 @@
 class CitiesController < ApplicationController
+  def new
+    @city = City.new
+  end
+
+  def create
+    @city = City.new(city_params)
+    @city.save
+  end
+
   def show
     @city = City.find(params[:id])
   end
@@ -13,8 +22,6 @@ class CitiesController < ApplicationController
       }
     end
   end
-
-
 
   private
 
