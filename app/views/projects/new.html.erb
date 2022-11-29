@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center ">
+  <div class="formcard">
+    <h2 class="mb-5"> Create your Project </h2>
+    <%= simple_form_for [@city, @project] do |f| %>
+      <%= f.input :title, label: "Give it a catching name"%>
+      <%= f.input :description, label: "Provide some description"%>
+      <%= f.input :location, label: "Provide the street, house number and postal code" %>
+      <%= f.submit class:"btn-flat"%>
+    <% end %>
+  </div>
+</div>
