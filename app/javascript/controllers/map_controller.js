@@ -23,6 +23,7 @@ export default class extends Controller {
       style: "mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb"
     })
   }
+}
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
