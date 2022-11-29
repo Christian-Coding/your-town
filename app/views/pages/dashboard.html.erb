@@ -1,7 +1,68 @@
 <div class="container">
-  <h1 class="text-center">My <strong>Dashboard</strong></h1>
+  <h1 class="mt-5 mb-5 text-center"> Welcome to your profile:<strong><%= current_user.email %>!</strong></h1>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Project search..." aria-label="Username" aria-describedby="basic-addon1">
+      </div>
   <div class="dashboard-box d-flex justify-content-evenly">
-    <div class="card justify-content-center" style="width: 20rem;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              </div>
+          </th>
+          <th scope="col">Project Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            </div>
+          </th>
+          <td>Bird nest</td>
+          <td>Pending</td>
+          <td id="dashboard-button" class="btn btn-primary btn-lg" style="">Upvote</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            </div>
+          </th>
+          <td>Bike lane</td>
+          <td>Pending</td>
+          <td id="dashboard-button" class="btn btn-primary btn-lg" style="">Upvote</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            </div>
+          </th>
+          <td>Summer House</td>
+          <td>Pending</td>
+          <td id="dashboard-button" class="btn btn-primary btn-lg" style="">Upvote</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <%# <div class="card justify-content-center" style="width: 20rem;">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -17,6 +78,4 @@
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="card-link">Card link</a>
       </div>
-    </div>
-  </div>
-</div>
+    </div> %>

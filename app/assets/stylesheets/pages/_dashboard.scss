@@ -1,10 +1,33 @@
-
+.table {
+  box-shadow: 1px 1px 5px rgba(1, 1, 1, 0.2);
+  border-radius: 6.1px;
+  border: lightgrey;
+  text-align: center;
+}
 
 
 .dashboard-box {
   background-color: white;
   padding: 3.1rem;
   height: 500px;
-  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.5);
-  border-radius: 4.6px;
+  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.2);
+  border-radius: 16.7px;
+}
+
+#dashboard-button {
+  width: 130px;
+  background-color: #57BE82;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$white};
+  --#{$prefix}btn-border-color: transparent;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.input-group {
+  border-radius: 14px !important;
+}
+
+tr {
+  border-width: 2px;
 }
