@@ -1,17 +1,10 @@
 <div class="d-flex justify-content-center ">
   <div class="formcard">
     <h2 class="mb-5"> Create your Project </h2>
-    <%= simple_form_for [@city @project] do |f| %>
+    <%= simple_form_for [@city, @project] do |f| %>
       <%= f.input :title, label: "Give it a catching name"%>
       <%= f.input :description, label: "Provide some description"%>
       <%= f.input :location, label: "Provide the street, house number and postal code" %>
-     
-      <%= f.input :photo, as: :file, label: "Add an image of yourself" %>
-      <%= f.input :baking_skill, label: "Baking skill", collection: 0..10,  as: :radio_buttons %>
-      <%= f.input :lullaby_skill, label: "Lullaby skill", collection: 0..10,  as: :radio_buttons %>
-      <%= f.input :storytelling_skill, label: "Storytelling skill", collection: 0..10, as: :radio_buttons %>
-      <%= f.input :availability, label: "Your availability"%>
-      <%= f.input :price_per_day, label: "Your price per day (in EUR)"%>
       <%= f.submit class:"btn-flat"%>
     <% end %>
   </div>
