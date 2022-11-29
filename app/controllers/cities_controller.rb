@@ -18,7 +18,7 @@ class CitiesController < ApplicationController
       {
         lat: city.latitude,
         lng: city.longitude
-         #info_window: render_to_string(partial: "info_window", locals: {city: city})
+        #info_window: render_to_string(partial: "info_window", locals: {city: city})
       }
     end
   end
