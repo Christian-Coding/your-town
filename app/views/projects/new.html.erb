@@ -5,11 +5,11 @@
     </div>
     <div class="formcard ms-5">
       <%= simple_form_for [@city, @project] do |f| %>
-        <%= f.input :title, label: "Title", placeholder: "Create some curiosity"%>
-        <%= f.input :description, label: "Description", placeholder: "Add some more details"%>
-        <%= f.input :location, label: "Address", placeholder: "e.g. Leopoldstraße 5, 80798 Munich"%>
+        <%= f.input :title, label: "Title", placeholder: "Create some curiosity" %>
+        <%= f.input :description, label: "Description", placeholder: "Add some more details" %>
+        <%= f.input :location, label: "Address", placeholder: "e.g. Leopoldstraße 5, 80798 Munich" %>
         <%= f.input :photo, label: "Images", as: :file, input_html: { multiple: true } %>
-        <%= f.button :submit, "Create", class:"btn btn-primary"%>
+        <%= f.button :submit, "Create", class:"btn btn-primary" %>
       <% end %>
     </div>
   </div>
