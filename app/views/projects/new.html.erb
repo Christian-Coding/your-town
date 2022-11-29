@@ -1,15 +1,15 @@
-<div class="d-flex justify-content-center ">
-  <div class="flexbox">
+<div class="d-flex justify-content-center mt-5">
+  <div class="flexbox px-5">
     <div class="me-5">
       <h1><strong>Share your <br> project idea <br> with the community</strong></h1>
     </div>
     <div class="formcard ms-5">
       <%= simple_form_for [@city, @project] do |f| %>
-        <%= f.input :title, label: "A catchy title"%>
-        <%= f.input :description, label: "Some description"%>
-        <%= f.input :location, label: "Provide the street, house number and postal code" %>
-        <%= f.input :photo, label: "Add images of status-quo and of your future vision", as: :file, input_html: { multiple: true } %>
-        <%= f.submit class:"btn-flat"%>
+        <%= f.input :title, label: "Title", placeholder: "Create some curiosity"%>
+        <%= f.input :description, label: "Description", placeholder: "Add some more details"%>
+        <%= f.input :location, label: "Address", placeholder: "e.g. Leopoldstraße 5, 80798 Munich"%>
+        <%= f.input :photo, label: "Images", as: :file, input_html: { multiple: true } %>
+        <%= f.button :submit, "Create", class:"btn btn-primary"%>
       <% end %>
     </div>
   </div>
