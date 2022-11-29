@@ -2,7 +2,7 @@
   box-shadow: 1px 1px 5px rgba(1, 1, 1, 0.2);
   border-radius: 6.1px;
   border: lightgrey;
-  text-align: center;
+  text-align: inherit;
 }
 
 
@@ -21,7 +21,7 @@
   --#{$prefix}btn-color: #{$white};
   --#{$prefix}btn-border-color: transparent;
   margin-left: 5px;
-  margin-top: 3px;
+  margin-top: 14px;
 }
 
 .input-group {
@@ -30,4 +30,12 @@
 
 tr {
   border-width: 2px;
+}
+td {
+  margin-top: 5px;
+}
+
+.img-thumbnail {
+  width: 80px;
+  height: 80px;
 }
