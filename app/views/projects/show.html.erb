@@ -1,9 +1,38 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://live.staticflickr.com/65535/48672142766_afde2ffee6_b.jpg);">
-  <div class="container">
-    <h1><strong>Community Garden</strong></h1>
-    <p>Details Project</p>
+<div class="banner">
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="home-tab">
+      <div class="container">
+        <h1><strong><%= @project.title %></strong></h1>
+        <div class="d-flex">
+          <h2> Details </h2>
 
 
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="container">
+        <h1><strong><%= @project.title %></strong></h1>
+        <div class="d-flex">
+          <h2> Project </h2>
+
+
+        </div>
+      </div>
+    </div>
 
   </div>
+
+
 </div>
