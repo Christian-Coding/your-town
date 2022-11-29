@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+body, html {
+  height: 100%;
+}
+
+.home {
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1554222413-74348b32d66e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search {
+  align-items: center;
+  color: white;
+
+}
