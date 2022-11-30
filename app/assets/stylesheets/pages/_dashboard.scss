@@ -12,18 +12,25 @@
   height: 500px;
   box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.2);
   border-radius: 16.7px;
+  opacity: 1;
 }
 
 #dashboard-button {
-  // width: 100px;
+  width: 43.9px;
+  height: 28.1px;
   background-color: #57BE82;
   border-radius: 12px;
   --#{$prefix}btn-color: #{$black};
   --#{$prefix}btn-border-color: transparent;
-  // margin-left: 5px;
-  // margin-top: 14px;
-  justify-content: space-evenly;
-  box-sizing: content-box;
+}
+
+#dashboard-red {
+  width: 43.9px;
+  height: 28.1px;
+  background-color: red;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$black};
+  --#{$prefix}btn-border-color: transparent;
 }
 
 .input-group {
@@ -42,6 +49,12 @@ td {
   height: 80px;
 }
 
-.table-top {
-  color: rgb(89, 86, 86);
+
+
+.createp {
+  margin-top: 10px;
+  background-color: #57BE82;
+  border-radius: 12px;
+  --#{$prefix}btn-border-color: transparent;
+  margin-left: 80%;
 }
