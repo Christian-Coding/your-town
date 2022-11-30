@@ -8,4 +8,14 @@ class PagesController < ApplicationController
   def dashboard
     @projects = current_user.projects
   end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+
+    redirect_to dashboard_path
+  end
+
+  private
+
 end

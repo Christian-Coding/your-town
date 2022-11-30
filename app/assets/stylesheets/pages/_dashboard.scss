@@ -15,13 +15,15 @@
 }
 
 #dashboard-button {
-  width: 130px;
+  // width: 100px;
   background-color: #57BE82;
   border-radius: 12px;
-  --#{$prefix}btn-color: #{$white};
+  --#{$prefix}btn-color: #{$black};
   --#{$prefix}btn-border-color: transparent;
-  margin-left: 5px;
-  margin-top: 14px;
+  // margin-left: 5px;
+  // margin-top: 14px;
+  justify-content: space-evenly;
+  box-sizing: content-box;
 }
 
 .input-group {
@@ -38,4 +40,8 @@ td {
 .img-thumbnail {
   width: 80px;
   height: 80px;
+}
+
+.table-top {
+  color: rgb(89, 86, 86);
 }
