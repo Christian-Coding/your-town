@@ -4,5 +4,5 @@ class Project < ApplicationRecord
   belongs_to :city
   validates :title, presence: true
   validates :description, presence: true
-  validates :location, presence: true
+  validates :address, presence: true
 end
