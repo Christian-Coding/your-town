@@ -58,3 +58,13 @@ td {
   --#{$prefix}btn-border-color: transparent;
   margin-left: 80%;
 }
+
+
+tr svg {
+  opacity: 0;
+  transition: 0.2s opacity ease-in !important;
+}
+
+tr:hover svg {
+  opacity: 1;
+}
