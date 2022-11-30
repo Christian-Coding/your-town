@@ -16,9 +16,9 @@ class CitiesController < ApplicationController
     @cities = City.all
     @markers = @cities.geocoded.map do |city|
       {
-      lat: city.latitude,
-      lng: city.longitude
-      # info_window: render_to_string(partial: "info_window", locals: {city: city})
+        lat: city.latitude,
+        lng: city.longitude
+        #info_window: render_to_string(partial: "info_window", locals: {city: city})
       }
     end
   end
@@ -26,6 +26,6 @@ class CitiesController < ApplicationController
   private
 
   def city_params
-    params.require(:city).permit(:name, :district)
+    params.require(:city).permit(:name, :district, :address)
   end
 end

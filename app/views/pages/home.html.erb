@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="search">
+    <h1><span data-controller="typed-js"></span></h1>
+    <h2>Your.Town</h2>
+        <%= form_with url: projects_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag(:query, "", class: "form-control", placeholder: "Enter your City")
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
