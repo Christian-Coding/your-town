@@ -6,7 +6,7 @@ export default class extends Controller {
     apiKey: String,
     markers: Array
   }
-
+  
   connect() {
     console.log("help");
     mapboxgl.accessToken = this.apiKeyValue
@@ -37,3 +37,4 @@ export default class extends Controller {
   }
 
 }
+
