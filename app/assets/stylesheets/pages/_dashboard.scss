@@ -1,10 +1,60 @@
-
+.table {
+  box-shadow: 1px 1px 5px rgba(1, 1, 1, 0.2);
+  border-radius: 6.1px;
+  border: lightgrey;
+  text-align: inherit;
+}
 
 
 .dashboard-box {
   background-color: white;
   padding: 3.1rem;
   height: 500px;
-  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.5);
-  border-radius: 4.6px;
+  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.2);
+  border-radius: 16.7px;
+  opacity: 1;
+}
+
+#dashboard-button {
+  width: 43.9px;
+  height: 28.1px;
+  background-color: #57BE82;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$black};
+  --#{$prefix}btn-border-color: transparent;
+}
+
+#dashboard-red {
+  width: 43.9px;
+  height: 28.1px;
+  background-color: red;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$black};
+  --#{$prefix}btn-border-color: transparent;
+}
+
+.input-group {
+  border-radius: 14px !important;
+}
+
+tr {
+  border-width: 2px;
+}
+td {
+  margin-top: 5px;
+}
+
+.img-thumbnail {
+  width: 80px;
+  height: 80px;
+}
+
+
+
+.createp {
+  margin-top: 10px;
+  background-color: #57BE82;
+  border-radius: 12px;
+  --#{$prefix}btn-border-color: transparent;
+  margin-left: 80%;
 }

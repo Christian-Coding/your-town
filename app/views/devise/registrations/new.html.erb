@@ -1,9 +1,9 @@
-<h2>Sign up</h2>
+<h2 class="signup-h2">Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
+<div class="signup">
+  <div class="form-inputs form-control">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -16,10 +16,13 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
+</div>
+<div class="signup-buttons">
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  <%= render "devise/shared/links" %>
 
-<%= render "devise/shared/links" %>
+</div>
