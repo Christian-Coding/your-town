@@ -1,25 +1,34 @@
 class ProjectsController < ApplicationController
+
+  def index
+    @projects = Project.all
+    @markers = @projects.geocoded.map do |project|
+      {
+        lat: project.latitude,
+        lng: project.longitude
+        #info_window: render_to_string(partial: "info_window", locals: {city: city})
+      }
+    end
+  end
+
   def new
-    @city = City.find(params[:city_id])
     @project = Project.new
   end
 
   def create
-    @city = City.find(params[:city_id])
     @project = Project.new(project_params)
-    @project.city = @city
     @project.user = current_user
     @project.progress = "created"
-      if @project.save
-        redirect_to root_path
-      else
-        render :new_city_project_path, status: :unprocessable_entity
-      end
+    if @project.save
+      redirect_to projects_path
+    else
+      render :new_project_path, status: :unprocessable_entity
+    end
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :location, photos: [])
+    params.require(:project).permit(:title, :description, :address, photos: [])
   end
 end
