@@ -10,7 +10,11 @@ class ProjectsController < ApplicationController
     @project.city = @city
     @project.user = current_user
     @project.progress = "created"
-    @project.save
+      if @project.save
+        redirect_to root_path
+      else
+        render :new_city_project_path, status: :unprocessable_entity
+      end
   end
 
   private
