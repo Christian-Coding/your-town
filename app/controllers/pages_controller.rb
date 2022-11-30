@@ -23,4 +23,6 @@ class PagesController < ApplicationController
 
   private
 
+
+
 end
