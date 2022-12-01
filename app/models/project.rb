@@ -9,4 +9,6 @@ class Project < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :projects
+
+  acts_as_votable
 end

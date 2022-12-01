@@ -19,6 +19,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def upvote
+    @project = Project.find(params[:id])
+    @project.liked_by current_user
+  end
+
   def new
     @project = Project.new
   end

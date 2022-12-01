@@ -1,18 +1,20 @@
-<div class="d-flex justify-content-center mt-5">
-  <div class="flexbox px-5">
-    <div class="me-5">
-      <h1><strong>Share your <br> project idea <br> with the community</strong></h1>
-    </div>
-    <div class="formcard ms-5">
-      <%= simple_form_for [@city, @project] do |f| %>
-        <%= f.input :title, label: "Title", placeholder: "Create some curiosity" %>
-        <%= f.input :description, label: "Description", placeholder: "Add some more details" %>
-        <%= f.input :address,
-                  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-                  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-        <%= f.input :photo, label: "Images", as: :file, input_html: { multiple: true } %>
-        <%= f.button :submit, "Create", class:"btn btn-primary" %>
-      <% end %>
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="flexbox px-5">
+      <div class="me-5">
+        <h1><strong>Share your <br> project idea <br> with the community</strong></h1>
+      </div>
+      <div class="formcard ms-5">
+        <%= simple_form_for [@city, @project] do |f| %>
+          <%= f.input :title, label: "Title", placeholder: "Create some curiosity" %>
+          <%= f.input :description, label: "Description", placeholder: "Add some more details" %>
+          <%= f.input :address,
+                    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+          <%= f.input :photo, label: "Images", as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, "Create", class:"btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
