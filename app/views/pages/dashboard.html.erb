@@ -1,22 +1,57 @@
 <div class="container">
-  <h1 class="text-center">My <strong>Dashboard</strong></h1>
-  <div class="dashboard-box d-flex justify-content-evenly">
-    <div class="card justify-content-center" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
+  <h1 class="mt-5 mb-5 text-center"> Welcome to your profile:<strong> <%= current_user.first_name %>!</strong></h1>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </span>
+        <input type="text" class="form-control" placeholder="Project search..." aria-label="Username" aria-describedby="basic-addon1">
       </div>
-    </div>
 
-    <div class="card justify-content-center" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-      </div>
-    </div>
-  </div>
+<div class="dashboard-box d-flex justify-content-evenly">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+        </th>
+        <th class="table-top" scope="col">Project Name</th>
+        <th class="table-top" scope="col">Status</th>
+        <th class="table-top" scope="col">Upvote Count</th>
+
+        <th class="table-top" scope="col">Update
+        </th>
+        <th class="table-top"  style="" scope="col">Delete
+        </th>
+      </tr>
+    </thead>
+      <tbody>
+          <% @projects.each do | project | %>
+            <tr>
+              <th scope="row">
+              </th>
+              <td><img src="https://images.unsplash.com/photo-1594280469678-b2e9155feeb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpcmQlMjBuZXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="img-thumbnail" alt="...">
+              <%= project.title %>
+              </td>
+              <td> <%= project.progress %> </td>
+              <td>Upvote</td>
+                <td>
+                    <svg class="dashboard-hover btn btn-primary" id="dashboard-button" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </td>
+                <td>
+                    <svg class="dashboard-hover btn btn-primary" id="dashboard-red" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                      <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                    </svg>
+                </td>
+            </tr>
+          <% end %>
+      </tbody>
+  </table>
+</div>
+
+<div class="create-button">
+<%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
 </div>

@@ -5,12 +5,16 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    if params[:query].present? && params[:query] != ""
+      @projects = Project.near(params[:query], 50)
+    else
+      @projects = Project.all
+    end
     @markers = @projects.geocoded.map do |project|
       {
         lat: project.latitude,
-        lng: project.longitude
-        #info_window: render_to_string(partial: "info_window", locals: {city: city})
+        lng: project.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { project: project})
       }
     end
   end
@@ -30,9 +34,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    @project.update(project_params_update)
+    redirect_to project_path(@project)
+  end
+
   private
 
   def project_params
     params.require(:project).permit(:title, :description, :address, photos: [])
+  end
+
+  def project_params_update
+    params.require(:project).permit(:title, :description, :address, :progress, photos: [])
   end
 end

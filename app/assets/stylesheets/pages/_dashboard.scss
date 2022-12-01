@@ -1,10 +1,100 @@
+.table {
+  text-align: inherit;
+  border: none;
+}
 
-
+tbody {
+  box-shadow: 1px 1px 5px rgba(1, 1, 1, 0.2);
+  border-radius: 6.1px;
+  border: lightgrey;
+}
 
 .dashboard-box {
   background-color: white;
   padding: 3.1rem;
   height: 500px;
-  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.5);
-  border-radius: 4.6px;
+  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.2);
+  border-radius: 16.7px;
+  opacity: 1;
+}
+
+#dashboard-button {
+  width: 43.9px;
+  height: 28.1px;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$black};
+  --#{$prefix}btn-border-color: transparent !important;
+  --bs-btn-hover-border-color:white;
+  background-color: white;
+}
+
+#dashboard-button:hover {
+  background-color:#57BE82;
+}
+
+#dashboard-red {
+  width: 43.9px;
+  height: 28.1px;
+  background-color: white;
+  border-radius: 12px;
+  --#{$prefix}btn-color: #{$black};
+  --#{$prefix}btn-border-color: transparent !important;
+  --bs-btn-hover-border-color:white;
+}
+
+#dashboard-red:hover {
+  background-color: rgb(79, 78, 78);
+}
+
+.input-group {
+  border-radius: 14px !important;
+}
+
+.thead tr {
+  border: none;
+}
+
+
+td {
+  margin-top: 5px;
+}
+
+.img-thumbnail {
+  width: 80px;
+  height: 80px;
+}
+
+
+.createp {
+  margin-top: 10px;
+  background-color: #57BE82;
+  border-radius: 12px;
+  --#{$prefix}btn-border-color: transparent;
+  margin-left: 75.6%;
+  --bs-btn-hover-bg: #368055;
+  --bs-btn-hover-border-color: none;
+}
+
+
+tr svg {
+  transition: 0.2s opacity ease-in !important;
+}
+
+tr:hover svg {
+  opacity: 1;
+  transition: 0.2s opacity ease-in !important;
+}
+
+
+tbody tr {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+thead, thead tr {
+  border-color: white;
+}
+
+.table > tbody {
+  vertical-align: baseline;
 }
