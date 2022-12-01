@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   has_many_attached :photos
   belongs_to :user
-  #belongs_to :city removed forigen key from City
+  belongs_to :city removed forigen key from City
   validates :title, presence: true
   validates :description, presence: true
   validates :address, presence: true
