@@ -16,6 +16,6 @@ class Project < ApplicationRecord
   private
 
   def create_chatroom
-    Chatroom.create(project: self, name: @title)
+    Chatroom.create(project: self, name: "Hello")
   end
 end
