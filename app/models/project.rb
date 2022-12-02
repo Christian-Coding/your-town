@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   has_many_attached :photos
   belongs_to :user
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
 
   #belongs_to :city removed forigen key from City
   validates :title, presence: true
