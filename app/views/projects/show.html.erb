@@ -22,10 +22,11 @@
         </div>
       </div>
 
-    <% @project.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 450, width: 600, crop: :fill %>
-    <% end %>
-
+        <div class="container">
+          <% @project.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 450, width: 600, crop: :fill %>
+          <% end %>
+        </div>
 <%#
     <div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
     <div class="carousel-inner">
