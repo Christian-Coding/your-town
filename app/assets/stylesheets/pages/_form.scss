@@ -11,16 +11,24 @@
 }
 
 .me-5 {
-  background-image: url("https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNyZWF0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+  background-image: url("https://images.unsplash.com/photo-1616441064900-e0adeacda4f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI4fHxjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
   background-position: bottom;
-  width: 120%;
+  width: 75%;
   margin-top: -25px;
   margin-left: -48px;
   margin-bottom: -25px;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 5px;
 }
 
-strong {
-  color: #d4d5d9;
+.c-button {
+  border-radius: 10px;
+  color: white;
+}
+
+.me-5 h1 {
+  color: #fbfbfb;
+  margin-left: 11px;
+  margin-top: 5px;
 }
