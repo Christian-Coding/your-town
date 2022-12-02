@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :new, :create, :show] do
     member do
       post "upvote", to: "projects#upvote"
+      post "downvote", to: "projects#downvote"
     end
   end
 end
