@@ -1,6 +1,7 @@
 <div class="container">
   <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %>!</strong></h1>
 
+
   <div class="dashboard-box d-flex justify-content-evenly">
     <table class="table">
       <thead>
@@ -35,6 +36,7 @@
       </tbody>
     </table>
   </div>
+
 
   <div class="create-button">
   <%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
