@@ -1,84 +1,77 @@
-<div class="banner mt-5">
+<div class="formcardshow">
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="home" aria-selected="true">Details</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="profile" aria-selected="false">Projects</button>
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="profile" aria-selected="false">Chatroom</button>
     </li>
   </ul>
-  <div class="tab-content" id="myTabContent">
 
+  <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="home-tab">
       <div class="container mt-5">
-        <h1><strong><%= @project.title %></strong></h1>
-        <div class="d-flex">
+        <h2><strong><%= @project.title %></strong></h2>
 
-
+        <div class="carddetail">
+          <p class="mt-4"><strong> Creator</strong> <br> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
+          <p class="mt-4"><strong> Status</strong> <br> <%= @project.progress %></p>
+          <p class="mt-4"><strong> Location</strong> <br> <%= @project.address %></p>
+          <p class="mt-4"><strong>Description</strong> <br> <%= @project.description %></p>
         </div>
-        <h2 class="mt-4"><strong> Creator: </strong></h2>
-        <h2><strong> Supporters: </strong></h2>
-        <p class="mt-4">Description</p>
-        <%= @project.description %>
       </div>
-
-    </div>
 
     <div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://getwallpapers.com/wallpaper/full/b/9/1/142547.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Amazing-sunset-colors-wallpaper-4k.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images8.alphacoders.com/484/484717.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-    <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="profile-tab">
-      <div class="container mt-5">
-        <h1><strong><%= @project.title %></strong></h1>
-        <h2> Ideas? Comments? Feedback? - Get involved! </h2>
-
-        <div class="container chatroom"
-          data-controller="chatroom-subscription"
-          data-chatroom-subscription-chatroom-id-value="<%= @project.chatroom.id %>"
-        >
-
-          <div class="messages" data-chatroom-subscription-target="messages">
-            <% @project.chatroom.messages.each do |message| %>
-              <%= render "messages/message", message: message %>
-            <% end %>
-          </div>
-
-            <%= simple_form_for [@project.chatroom, Message.new],
-                html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-            %>
-              <%= f.input :content,
-                label: false,
-                placeholder: "Message ##{@project.chatroom.name}",
-                wrapper_html: {class: "flex-grow-1"}
-              %>
-              <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-            <% end %>
-        </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://getwallpapers.com/wallpaper/full/b/9/1/142547.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Amazing-sunset-colors-wallpaper-4k.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images8.alphacoders.com/484/484717.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
+  <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="container mt-5">
+      <h2><strong>Chatroom</strong></h2>
+      <h2 class="mb-4">Ideas? Comments? Feedback? - Get involved! </h2>
 
+      <div class="container chatroom"
+        data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @project.chatroom.id %>"
+      >
 
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @project.chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
 
+          <%= simple_form_for [@project.chatroom, Message.new],
+              html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+          %>
+            <%= f.input :content,
+              label: false,
+              placeholder: "Message ##{@project.chatroom.name}",
+              wrapper_html: {class: "flex-grow-1"}
+            %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>
