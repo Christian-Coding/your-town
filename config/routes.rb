@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       post "downvote", to: "projects#downvote"
     end
   end
-    delete "projects/:id", to: "projects#destroy", as: :delete_project
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
+  delete "projects/:id", to: "projects#destroy", as: :delete_project
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

@@ -24,7 +24,6 @@
         <%= link_to "Upvote", upvote_project_path(@project), data: {turbo_method: :post}, class: "btn btn-success"%>
         <% if current_user.voted_for? @project %>
           <%= link_to "Downvote", downvote_project_path(@project), data: {turbo_method: :post}, class: "btn btn-success"%>
-
         <% end %>
         <h2><strong><%= @project.title %></strong></h2>
 
