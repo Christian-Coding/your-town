@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
     resources :projects, only: [:index, :new, :create, :show, :update, :edit]
     delete "projects/:id", to: "projects#destroy", as: :delete_project
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
 end
