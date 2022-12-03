@@ -13,6 +13,8 @@ class Project < ApplicationRecord
   after_create :create_chatroom
   has_many :projects
 
+  acts_as_votable
+
   private
 
   def create_chatroom

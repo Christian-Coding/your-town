@@ -19,6 +19,7 @@
     <div class="wrapper <%= params[:action] == "home" ? "" : "margin-wrapper" %>">
       <%= yield %>
     </div>
+    
     <%= render "shared/footer" unless params[:action] == "home" %>
   </body>
 </html>
