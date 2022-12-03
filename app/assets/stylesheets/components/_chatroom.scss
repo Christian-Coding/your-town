@@ -1,11 +1,13 @@
 .chatroom {
   background: #F4F4F4;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  padding-bottom: 9px;
+  height: calc(70vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+
 
 
   h1 {
@@ -20,6 +22,8 @@
     padding: 1rem;
   }
 
+
+
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
@@ -28,4 +32,6 @@
       margin-bottom: 0;
     }
   }
+
+  
 }

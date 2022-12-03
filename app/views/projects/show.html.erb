@@ -1,21 +1,23 @@
 <div class="formcardshow">
-
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="home" aria-selected="true">Details</button>
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Details</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="profile" aria-selected="false">Chatroom</button>
+      <button class="nav-link" id="pills-chatroom-tab" data-bs-toggle="pill" data-bs-target="#pills-chatroom" type="button" role="tab" aria-controls="pills-chatroom" aria-selected="false">Chatroom</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-whiteboard-tab" data-bs-toggle="pill" data-bs-target="#pills-whiteboard" type="button" role="tab" aria-controls="pills-whiteboard" aria-selected="false">Whiteboard</button>
     </li>
   </ul>
 
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="home-tab">
-      <div class="container mt-5">
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+      <div class="container mt-5 ms-4">
         <div class="row">
             <h1><strong><%= @project.title %></strong></h1>
           <div class="col">
-
             <div class="carddetail">
               <h3 class="mt-4"><strong> Creator</strong></h3>
               <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
@@ -34,16 +36,21 @@
           <%= link_to "Support", upvote_project_path(@project), data: {turbo_method: :post}, class: "btn btn-success"%>
 
           <% if current_user.voted_for? @project %>
-            <%= link_to "Remove Support", downvote_project_path(@project), data: {turbo_method: :post}, class: ""%>
+            <%= link_to "Remove Support", downvote_project_path(@project), data: {turbo_method: :post}, class: "btn-remove"%>
           <% end %>
         </div>
       </div>
-
-        <div class="container">
-          <% @project.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 450, width: 600, crop: :fill %>
-          <% end %>
+    </div>
+    <div>
+      <div class="d-flex justif-content-between pb-5">
+      <% @project.photos.each do |photo| %>
+        <div class="imagecard">
+          <%= cl_image_tag photo.key, height: 350, width: 690, crop: :fill %>
         </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%#
     <div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -65,13 +72,12 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button> %>
-  </div>
-</div>
 
-  <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="container mt-5">
+
+  <div class="tab-pane fade" id="pills-chatroom" role="tabpanel" aria-labelledby="pills-chatroom-tab" tabindex="0">
+    <div class="container mt-5 pb-5">
       <h2><strong>Chatroom</strong></h2>
-      <h2 class="mb-4">Ideas? Comments? Feedback? - Get involved! </h2>
+      <h3 class="mb-4">Ideas? Comments? Feedback? - Get involved! </h3>
 
       <div class="container chatroom"
         data-controller="chatroom-subscription"
@@ -96,5 +102,8 @@
           <% end %>
       </div>
     </div>
+  </div>
+  <div class="tab-pane fade" id="pills-whiteboard" role="tabpanel" aria-labelledby="pills-whiteboard-tab" tabindex="0">
+    <p>Here you will soon find a whiteboard powered by Miro</p>
   </div>
 </div>
