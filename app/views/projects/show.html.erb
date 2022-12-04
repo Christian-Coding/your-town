@@ -19,18 +19,18 @@
             <h1><strong><%= @project.title %></strong></h1>
           <div class="col">
             <div class="carddetail">
-              <h3 class="mt-4"><strong> Creator</strong></h3>
+              <h6 class="mt-4"><strong> Creator</strong></h6>
               <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
-              <h3 class="mt-4"><strong> Status</strong></h3>
+              <h6 class="mt-4"><strong> Status</strong></h6>
               <p><%= @project.progress %></p>
-              <h3 class="mt-4"><strong> Location</strong></h3>
+              <h6 class="mt-4"><strong> Location</strong></h6>
               <p> <%= @project.address %></p>
             </div>
           </div>
         <div class="col">
-          <h3 class="mt-4"><strong>Description</strong></h3>
+          <h6 class="mt-4"><strong>Description</strong></h6>
           <p> <%= @project.description %></p>
-          <h3 class="mt-4"><strong>Supporters  👍🏻 : </strong><%= (@project.votes_for.size - @project.get_downvotes.size ) %> </h3>
+          <h3 class="my-4"><strong>Supporters  👍🏻 : </strong><%= (@project.votes_for.size - @project.get_downvotes.size ) %> </h3>
 
 
           <%= link_to "Support", upvote_project_path(@project), data: {turbo_method: :post}, class: "btn btn-success"%>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div>
-      <div class="d-flex justif-content-between pb-5">
+      <div class="d-flex justif-content-between pb-5 mt-5">
       <% @project.photos.each do |photo| %>
         <div class="imagecard">
           <%= cl_image_tag photo.key, height: 350, width: 690, crop: :fill %>
