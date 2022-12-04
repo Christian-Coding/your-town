@@ -9,7 +9,7 @@
           <th scope="col"></th>
           <th class="table-top" scope="col">Project Name</th>
           <th class="table-top" scope="col">Status</th>
-          <th class="table-top" scope="col">Upvote Count</th>
+          <th class="table-top" scope="col">Supporters</th>
           <th class="table-top" scope="col">Update</th>
           <th class="table-top"  style="" scope="col">Delete</th>
         </tr>
@@ -20,11 +20,11 @@
               <th scope="row">
               </th>
               <td><img src="https://images.unsplash.com/photo-1594280469678-b2e9155feeb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpcmQlMjBuZXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="img-thumbnail" alt="...">
-                  <%= link_to  project_path(project.id), class: "text-decoration-none text-dark" do %>
-                  <%= link_to "#{project.title}", project_path(project.id), class: "link-dark" %>
+                  <%= link_to  project_path(project.id) do %>
+                  <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>
               </td>
               <td> <%= project.progress %> </td>
-              <td>Upvote</td>
+              <td> <%= (project.votes_for.size - project.get_downvotes.size ) %> </td>
                 <td>
                   <%= link_to "", edit_project_path(project), class: "dashboard-hover btn btn-primary fa-solid fa-pen-to-square", id: "dashboard-button" %>
                 </td>
