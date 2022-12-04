@@ -1,24 +1,19 @@
 <div class="container">
-  <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %></strong></h1>
-      <div class="input-group mb-3">
-      </div>
+  <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %>!</strong></h1>
 
-<div class="dashboard-box d-flex justify-content-evenly">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">
-        </th>
-        <th class="table-top" scope="col">Project Name</th>
-        <th class="table-top" scope="col">Status</th>
-        <th class="table-top" scope="col">Upvote Count</th>
 
-        <th class="table-top" scope="col">Update
-        </th>
-        <th class="table-top"  style="" scope="col">Delete
-        </th>
-      </tr>
-    </thead>
+  <div class="dashboard-box d-flex justify-content-evenly">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th class="table-top" scope="col">Project Name</th>
+          <th class="table-top" scope="col">Status</th>
+          <th class="table-top" scope="col">Upvote Count</th>
+          <th class="table-top" scope="col">Update</th>
+          <th class="table-top"  style="" scope="col">Delete</th>
+        </tr>
+      </thead>
       <tbody>
           <% @projects.each do | project | %>
             <tr>
@@ -42,8 +37,8 @@
       </tbody>
     </table>
   </div>
-</div>
 
-<div class="create-button">
-<%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
+  <div class="create-button">
+  <%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
+  </div>
 </div>
