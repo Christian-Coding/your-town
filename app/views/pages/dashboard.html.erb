@@ -25,7 +25,8 @@
               <th scope="row">
               </th>
               <td><img src="https://images.unsplash.com/photo-1594280469678-b2e9155feeb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpcmQlMjBuZXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="img-thumbnail" alt="...">
-              <%= project.title %>
+                  <%= link_to  project_path(project.id), class: "text-decoration-none text-dark" do %>
+                  <%= link_to "#{project.title}", project_path(project.id), class: "link-dark" %>
               </td>
               <td> <%= project.progress %> </td>
               <td>Upvote</td>
@@ -36,6 +37,7 @@
                   <%= link_to "", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dashboard-hover btn btn-primary fa-solid fa-trash", id: "dashboard-red" %>
                 </td>
             </tr>
+            <% end %>
           <% end %>
       </tbody>
     </table>
