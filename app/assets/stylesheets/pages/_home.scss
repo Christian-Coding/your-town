@@ -32,9 +32,15 @@
 
   form {
     height: 56px;
+    border-radius: 20px;
   }
 
   .home-btn {
     color: white;
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  .form-control {
+    border-radius: 8px 0px 0px 8px;
   }
 }
