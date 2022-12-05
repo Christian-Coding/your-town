@@ -11,7 +11,6 @@
     </li>
   </ul>
 
-
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
       <div class="container mt-5 ms-4">
@@ -19,6 +18,9 @@
             <h1><strong><%= @project.title %></strong></h1>
           <div class="col">
             <div class="carddetail">
+              <% @project.tags.each do |tag| %>
+                <p class="tag"><%= tag %> </p>
+              <% end %>
               <h6 class="mt-4"><strong> Creator</strong></h6>
               <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
               <h6 class="mt-4"><strong> Status</strong></h6>
@@ -77,7 +79,7 @@
   <div class="tab-pane fade" id="pills-chatroom" role="tabpanel" aria-labelledby="pills-chatroom-tab" tabindex="0">
     <div class="container mt-5 pb-5">
       <h2><strong>Chatroom</strong></h2>
-      <h3 class="mb-4">Ideas? Comments? Feedback? - Get involved! </h3>
+      <h3 class="mb-3">Ideas? Comments? Feedback? - Get involved! </h3>
 
       <div class="container chatroom"
         data-controller="chatroom-subscription"
@@ -108,6 +110,9 @@
     </div>
   </div>
   <div class="tab-pane fade" id="pills-whiteboard" role="tabpanel" aria-labelledby="pills-whiteboard-tab" tabindex="0">
-    <p>Here you will soon find a whiteboard powered by Miro</p>
+    <div class="container mt-5 pb-5">
+      <h2 class="mb-3"><strong>Whiteboard</strong></h2>
+      <iframe width="1296" height="729" src="https://miro.com/app/live-embed/uXjVP8owzx4=/?embedAutoplay=true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
   </div>
 </div>

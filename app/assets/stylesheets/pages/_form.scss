@@ -32,3 +32,10 @@
   margin-left: 11px;
   margin-top: 5px;
 }
+
+.form-background {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
