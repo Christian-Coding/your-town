@@ -1,3 +1,4 @@
+
 <div class="d-flex justify-content-center mt-5">
   <div class="flexbox px-5">
     <div class="me-5" src="">
@@ -7,7 +8,15 @@
       <%= simple_form_for [@city, @project] do |f| %>
         <%= f.input :title, label: "Title", placeholder: "Create some curiosity" %>
         <%= f.input :description, label: "Description", placeholder: "Add some more details" %>
+<<<<<<< HEAD
 
+=======
+        <%= f.input :tag_list,
+                  as: :check_boxes,
+                  collection: [ "transport", "culture", "green space", "architecture", "family", "leisure", "elderly"],
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+>>>>>>> 7f85f713a8d8816f0a19794268bcccf791a54175
         <%= f.input :address,
                   input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>

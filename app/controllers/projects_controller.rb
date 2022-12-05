@@ -5,11 +5,15 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    if params[:query].present? && params[:query] != ""
-      @projects = Project.near(params[:query], 50)
+
+    if params[:query].present?
+      @coordinates = Geocoder.search(params[:query]).first.coordinates
     else
-      @projects = Project.all
+      @coordinates = Geocoder.search("munich").first.coordinates
     end
+
+    @projects = Project.all
+
     @markers = @projects.geocoded.map do |project|
       {
         lat: project.latitude,
@@ -62,13 +66,24 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path(@project)
   end
 
+  def tagged
+    if params[:tag].present?
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
+  end
+
+
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :address, photos: [])
+    params.require(:project).permit(:title, :description, :address, tag_list: [], photos: [])
   end
 
   def project_params_update
-    params.require(:project).permit(:title, :description, :address, :progress, photos: [])
+    params.require(:project).permit(:title, :description, :address, :progress, tag_list: [], photos: [])
   end
+
+
 end

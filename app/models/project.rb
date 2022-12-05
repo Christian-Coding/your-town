@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_one :chatroom, dependent: :destroy
 
+
   #belongs_to :city removed forigen key from City
   validates :title, presence: true
   validates :description, presence: true
@@ -14,6 +15,7 @@ class Project < ApplicationRecord
   has_many :projects
 
   acts_as_votable
+  acts_as_taggable_on :tags
 
   private
 

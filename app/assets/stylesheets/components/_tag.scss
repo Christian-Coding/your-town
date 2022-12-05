@@ -1,0 +1,46 @@
+.tag {
+  border-radius: 50rem;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  font-size: 1 rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #1edd87a0;
+  color: white;
+  border: 1px solid #1EDD88;
+  margin-right: 0 rem;
+  margin-bottom: 0.4rem;
+}
+
+table {
+  border-collapse: none;
+}
+
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1 rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #1edd87a0;
+  color: white;
+  border: 1px solid #1EDD88;
+  margin-right: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: #1EDD88;
+  color: white;
+}
+
+
