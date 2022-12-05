@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_085940) do
     t.string "district"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "messages", force: :cascade do |t|
