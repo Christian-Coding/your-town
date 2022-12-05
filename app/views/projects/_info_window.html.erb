@@ -1,8 +1,11 @@
 <% if project.photos.attached? %>
-  <%= cl_image_tag project.photos.first.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag project.photos.first.key, height: 200, width: 300, crop: :fill %>
 <% end %>
 
 <h3><%= project.title %></h3>
+<% project.tags.each do |tag| %>
+  <p class="tag"><%= tag %> </p>
+<% end %>
 <h2>👍🏻 <%= project.votes_for.size - project.get_downvotes.size  %></h2>
 <p><%= project.address %></p>
 

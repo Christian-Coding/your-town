@@ -35,7 +35,7 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([ this.coordinatesValue[1], this.coordinatesValue[0] ]) // first argument is longitude second is latitude
     // const bounds = map.getBounds();
-    this.map.fitBounds(bounds, { padding: 100, maxZoom: 10, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 100, maxZoom: 12, duration: 0 })
   }
 
 }
