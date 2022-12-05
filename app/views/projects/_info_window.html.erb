@@ -1,5 +1,9 @@
-<% project.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 125, width: 175, crop: :fill %>
+<%# project.photos.each do |photo| %>
+  <%#= cl_image_tag photo.key, height: 125, width: 175, crop: :fill %>
+<%# end %>
+
+<% if project.photos.attached? %>
+  <%= cl_image_tag project.photos.first.key, height: 125, width: 175, crop: :fill %>
 <% end %>
 
 <h3><%= project.title %></h3>

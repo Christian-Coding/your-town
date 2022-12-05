@@ -5,11 +5,13 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    if params[:query].present? && params[:query] != ""
-      @projects = Project.near(params[:query], 50)
-    else
-      @projects = Project.all
+
+    if params[:query].present?
+      @coordinates = Geocoder.search(params[:query]).first.coordinates
     end
+
+    @projects = Project.all
+
     @markers = @projects.geocoded.map do |project|
       {
         lat: project.latitude,
