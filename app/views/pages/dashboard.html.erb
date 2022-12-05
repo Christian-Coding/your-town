@@ -1,34 +1,30 @@
 <div class="container">
   <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %>!</strong></h1>
-      <div class="input-group mb-3">
-      </div>
 
-<div class="dashboard-box d-flex justify-content-evenly">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">
-        </th>
-        <th class="table-top" scope="col">Project Name</th>
-        <th class="table-top" scope="col">Status</th>
-        <th class="table-top" scope="col">Upvote Count</th>
 
-        <th class="table-top" scope="col">Update
-        </th>
-        <th class="table-top"  style="" scope="col">Delete
-        </th>
-      </tr>
-    </thead>
+  <div class="dashboard-box d-flex justify-content-evenly">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th class="table-top" scope="col">Project Name</th>
+          <th class="table-top" scope="col">Status</th>
+          <th class="table-top" scope="col">Supporters</th>
+          <th class="table-top" scope="col">Update</th>
+          <th class="table-top"  style="" scope="col">Delete</th>
+        </tr>
+      </thead>
       <tbody>
           <% @projects.each do | project | %>
             <tr>
               <th scope="row">
               </th>
               <td><img src="https://images.unsplash.com/photo-1594280469678-b2e9155feeb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpcmQlMjBuZXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="img-thumbnail" alt="...">
-              <%= project.title %>
+                  <%= link_to  project_path(project.id) do %>
+                  <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>
               </td>
               <td> <%= project.progress %> </td>
-              <td>Upvote</td>
+              <td> <%= (project.votes_for.size - project.get_downvotes.size ) %> </td>
                 <td>
                   <%= link_to "", edit_project_path(project), class: "dashboard-hover btn btn-primary fa-solid fa-pen-to-square", id: "dashboard-button" %>
                 </td>
@@ -36,11 +32,13 @@
                   <%= link_to "", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dashboard-hover btn btn-primary fa-solid fa-trash", id: "dashboard-red" %>
                 </td>
             </tr>
+            <% end %>
           <% end %>
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>
 
-<div class="create-button">
-<%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
+  <div class="create-button">
+  <%= link_to "Create new project", new_project_path, class: "btn btn-primary createp" %>
+  </div>
 </div>
