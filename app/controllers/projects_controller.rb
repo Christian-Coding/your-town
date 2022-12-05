@@ -62,13 +62,24 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path(@project)
   end
 
+  def tagged
+    if params[:tag].present?
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
+  end
+
+
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :address, photos: [])
+    params.require(:project).permit(:title, :description, :address, tag_list: [], photos: [])
   end
 
   def project_params_update
-    params.require(:project).permit(:title, :description, :address, :progress, photos: [])
+    params.require(:project).permit(:title, :description, :address, :progress, tag_list: [], photos: [])
   end
+
+
 end
