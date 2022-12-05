@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 
     if params[:query].present?
       @coordinates = Geocoder.search(params[:query]).first.coordinates
+    else
+      @coordinates = Geocoder.search("munich").first.coordinates
     end
 
     @projects = Project.all
