@@ -31,9 +31,9 @@
 .btn-uno-chat {
   color: black;
   padding: 8px 24px;
-  border-radius: 4px;
-  height: 37px;
+  border-radius: 0px 4px 4px 0px;
   display: inline-block;
+  border-color: transparent;
   font-size: large;
   background: #3f9;
   transition: background 0.3s ease;
@@ -66,4 +66,12 @@
 .btn-uno-home:hover {
   background: rgb(105, 255, 180);
   color: black;
+}
+
+.round-left-side {
+  border-radius: 16px 0px 0px 16px;
+}
+
+.round-right-side {
+  border-radius: 0px 16px 16px 0px;
 }
