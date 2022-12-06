@@ -4,12 +4,23 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "source sans pro";
   width: 400px;
+  height: 530px;
+  border-radius: 4px;
+  padding: 0px;
 
-  a {
-    text-decoration: none;
-    color: black;
+  h2 {
+    margin-top: 18px;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
 
+
+.viewdetails:hover {
+  background-color: #C8CFD8;
+  color: #F6F8FA;
+}

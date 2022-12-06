@@ -1,12 +1,12 @@
 <% if project.photos.attached? %>
-  <%= cl_image_tag project.photos.first.key, height: 200, width: 300, crop: :fill %>
+  <%= cl_image_tag project.photos.first.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
-<h3><%= project.title %></h3>
+<h2><%= project.title %></h2>
+<p><%= project.address %></p>
 <% project.tags.each do |tag| %>
   <p class="tag"><%= tag %> </p>
 <% end %>
 <h2>👍🏻 <%= project.votes_for.size - project.get_downvotes.size  %></h2>
-<p><%= project.address %></p>
 
-<%= link_to "View Details", project_path(project.id), class: "btn btn-primary" %>
+<%= link_to "View Details", project_path(project.id), class: "btn w-100 viewdetails" %>
