@@ -44,3 +44,25 @@
     border-radius: 8px 0px 0px 8px;
   }
 }
+
+//Homepage content scss
+.homepage-content {
+  margin-top: 24px;
+
+  h2 {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: 'source sans pro';
+    text-align: center;
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  img {
+    width: 100%;
+  }
+
+}
