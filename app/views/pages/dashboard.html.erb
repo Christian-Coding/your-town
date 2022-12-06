@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %>!</strong></h1>
+  <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %></strong></h1>
 
 
   <div class="dashboard-box d-flex justify-content-evenly">
@@ -20,7 +20,7 @@
               <th scope="row">
               </th>
               <td><% if project.photos.attached? %>
-                    <%= cl_image_tag project.photos.first.key, height: 90, width: 160, crop: :fill %>
+                    <%= cl_image_tag project.photos.first.key, height: 90, width: 160, crop: :fill, radius: 5 %>
                   <% end %>
                   <%= link_to  project_path(project.id) do %>
                   <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>

@@ -24,21 +24,22 @@
             <% end %>
           </div>
           <div class="col">
-
-
-              <%= link_to upvote_project_path(@project), data: {turbo_method: :post} do %>
-                <p class="text-end me-3"><i class="fa-solid fa-heart"></i></p>
+              <% if current_user.liked? @project %>
+                <%= link_to downvote_project_path(@project), data: {turbo_method: :post} do %>
+                  <p class="text-end me-3"><i class="fa-solid fa-thumbs-up"></i></p>
+                <% end %>
+              <% else %>
+                <%= link_to upvote_project_path(@project), data: {turbo_method: :post} do %>
+                  <p class="text-end me-3"><i class="fa-regular fa-thumbs-up"></i></p>
+                <% end %>
               <% end %>
-          
-            <%= link_to "Remove support", downvote_project_path(@project), data: {turbo_method: :post} %>
 
-            <p class="text-end"><%= (@project.votes_for.size - @project.get_downvotes.size ) %> Supporters</p>
+              <p class="text-end"><%= pluralize((@project.votes_for.size - @project.get_downvotes.size ), "Supporter") %></p>
           </div>
-
           <div class="row pt-0 d-flex justify-content-between">
             <div class="col">
               <div class="carddetail">
-                <h6 class="mt-4"><strong> Creator</strong></h6>
+                <h6 class="mt-1"><strong> Creator</strong></h6>
                 <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
                 <h6 class="mt-4"><strong> Status</strong></h6>
                 <p><%= @project.progress %></p>
@@ -47,14 +48,14 @@
               </div>
             </div>
             <div class="col">
-              <h6 class="mt-4"><strong>Description</strong></h6>
+              <h6 class="mt-1"><strong>Description</strong></h6>
               <p> <%= @project.description %></p>
             </div>
         </div>
       </div>
     </div>
     <div>
-      <div class="d-flex justif-content-between pb-5 mt-5">
+      <div class="d-flex justif-content-between pb-5 mt-3">
       <% @project.photos.each do |photo| %>
         <div class="imagecard">
           <%= cl_image_tag photo.key, height: 350, width: 690, crop: :fill %>
@@ -87,7 +88,7 @@
 
 
   <div class="tab-pane fade" id="pills-chatroom" role="tabpanel" aria-labelledby="pills-chatroom-tab" tabindex="0">
-    <div class="container mt-5 pb-5">
+    <div class="container pt-4 pb-5">
       <h2><strong>Chatroom</strong></h2>
       <h3 class="mb-3">Ideas? Comments? Feedback? - Get involved! </h3>
 
@@ -112,15 +113,16 @@
             <%= f.input :content,
               label: false,
               placeholder: "Message ##{@project.chatroom.name}",
-              wrapper_html: {class: "flex-grow-1"}
+              wrapper_html: {class: "flex-grow-1"},
+              input_html: { class: "h-100 rounded-left-2 round-left-side" }
             %>
-            <%= f.submit "Send", class: "btn-uno-chat" %>
+            <%= f.submit "Send", class: "btn-uno-chat mb-3 round-right-side" %>
           <% end %>
       </div>
     </div>
   </div>
   <div class="tab-pane fade" id="pills-whiteboard" role="tabpanel" aria-labelledby="pills-whiteboard-tab" tabindex="0">
-    <div class="container mt-5 pb-5">
+    <div class="container pt-4 pb-5">
       <h2 class="mb-3"><strong>Whiteboard</strong></h2>
       <iframe width="1296" height="729" src="https://miro.com/app/live-embed/uXjVP8owzx4=/?embedAutoplay=true" frameborder="0" scrolling="no" allowfullscreen></iframe>
     </div>
