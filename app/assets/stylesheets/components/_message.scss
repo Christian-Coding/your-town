@@ -6,16 +6,35 @@
 // To style the message itself
 .sender-style, .receiver-style {
   width: 70%;
-  max-width: 400px;
+  max-width: 500px;
   border-radius: 4px;
   padding: 8px;
   min-height: 80px;
 }
 
 .sender-style {
-  background-color: #3bafa4;
+  background-color: rgb(105, 255, 180);
 }
 
 .receiver-style {
   background-color: #dddddd;
+}
+
+.message-avatar {
+  position:relative;
+}
+
+.message {
+  display: flex;
+}
+
+p {
+  word-break: break-all;
+}
+
+.text-end {
+  position: relative;
+  bottom: -45px;
+  color: black;
+  font-size: 14px;
 }
