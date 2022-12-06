@@ -7,6 +7,6 @@
 <% project.tags.each do |tag| %>
   <p class="tag"><%= tag %> </p>
 <% end %>
-<h2>👍🏻 <%= project.votes_for.size - project.get_downvotes.size  %></h2>
+<h2><i class="fa-solid fa-heart"></i> Supporters: <%= project.votes_for.size - project.get_downvotes.size  %></h2>
 
 <%= link_to "View Details", project_path(project.id), class: "btn w-100 viewdetails" %>
