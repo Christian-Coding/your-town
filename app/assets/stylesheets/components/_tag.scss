@@ -1,13 +1,11 @@
 .tag {
   border-radius: 50rem;
-  color: black;
   text-align: center;
   display: inline-block;
   font-size: 1 rem;
   padding: 0.1rem 0.5rem;
-  background-color: #1edd87a0;
+  background-color: #6ca7ff;
   color: white;
-  border: 1px solid #1EDD88;
   margin-right: 0 rem;
   margin-bottom: 0.4rem;
 }
@@ -31,16 +29,13 @@ table {
   font-size: 1 rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: #1edd87a0;
-  color: white;
-  border: 1px solid #1EDD88;
+  background-color: #6ca7ff;
+  color: white !important;
   margin-right: 0.2rem;
   margin-bottom: 0.4rem;
 }
 
 .tag-selector:checked + label {
-  background-color: #1EDD88;
-  color: white;
+  background-color: #3484FF;
+  color: white !important;
 }
-
-
