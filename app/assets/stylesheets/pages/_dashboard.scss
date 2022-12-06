@@ -29,7 +29,7 @@ tbody {
 
 
 #dashboard-button:hover {
-  background-color:#57BE82;
+  background-color: #3f9;
 }
 
 #dashboard-red {
@@ -43,7 +43,7 @@ tbody {
 }
 
 #dashboard-red:hover, #dashboard-red:active, #dashboard-red:focus-visible {
-  background-color: rgb(79, 78, 78);
+  background-color: rgb(141, 140, 140);
 
 }
 
@@ -67,13 +67,8 @@ td {
 
 
 .createp {
-  margin-top: 35px;
-  background-color: #57BE82;
-  border-radius: 12px;
-  --#{$prefix}btn-border-color: transparent;
-  margin-left: 85.6%;
-  --bs-btn-hover-bg: #368055;
-  --bs-btn-hover-border-color: none;
+  margin-top: 30px;
+  margin-left: 79.5%;
 }
 
 

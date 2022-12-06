@@ -1,4 +1,4 @@
-<div class="formcardshow">
+<div class="pill-bar">
   <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Details</button>
@@ -10,36 +10,46 @@
       <button class="nav-link" id="pills-whiteboard-tab" data-bs-toggle="pill" data-bs-target="#pills-whiteboard" type="button" role="tab" aria-controls="pills-whiteboard" aria-selected="false">Whiteboard</button>
     </li>
   </ul>
+</div>
 
+<div class="formcardshow">
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-      <div class="container mt-5 ms-4">
-        <div class="row">
-            <h1><strong><%= @project.title %></strong></h1>
+      <div class="container">
+        <div class="row pt-4 d-flex justify-content-between">
           <div class="col">
-            <div class="carddetail">
-              <% @project.tags.each do |tag| %>
-                <p class="tag"><%= tag %> </p>
-              <% end %>
-              <h6 class="mt-4"><strong> Creator</strong></h6>
-              <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
-              <h6 class="mt-4"><strong> Status</strong></h6>
-              <p><%= @project.progress %></p>
-              <h6 class="mt-4"><strong> Location</strong></h6>
-              <p> <%= @project.address %></p>
-            </div>
+            <h1><strong><%= @project.title %></strong></h1>
+            <% @project.tags.each do |tag| %>
+              <p class="tag"><%= tag %> </p>
+            <% end %>
           </div>
-        <div class="col">
-          <h6 class="mt-4"><strong>Description</strong></h6>
-          <p> <%= @project.description %></p>
-          <h3 class="my-4"><strong>Supporters  👍🏻 : </strong><%= (@project.votes_for.size - @project.get_downvotes.size ) %> </h3>
+          <div class="col">
 
 
-          <%= link_to "Support", upvote_project_path(@project), data: {turbo_method: :post}, class: "btn btn-success"%>
+              <%= link_to upvote_project_path(@project), data: {turbo_method: :post} do %>
+                <p class="text-end me-3"><i class="fa-solid fa-heart"></i></p>
+              <% end %>
+          
+            <%= link_to "Remove support", downvote_project_path(@project), data: {turbo_method: :post} %>
 
-          <% if current_user.voted_for? @project %>
-            <%= link_to "Remove Support", downvote_project_path(@project), data: {turbo_method: :post}, class: "btn-remove"%>
-          <% end %>
+            <p class="text-end"><%= (@project.votes_for.size - @project.get_downvotes.size ) %> Supporters</p>
+          </div>
+
+          <div class="row pt-0 d-flex justify-content-between">
+            <div class="col">
+              <div class="carddetail">
+                <h6 class="mt-4"><strong> Creator</strong></h6>
+                <p> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
+                <h6 class="mt-4"><strong> Status</strong></h6>
+                <p><%= @project.progress %></p>
+                <h6 class="mt-4"><strong> Location</strong></h6>
+                <p> <%= @project.address %></p>
+              </div>
+            </div>
+            <div class="col">
+              <h6 class="mt-4"><strong>Description</strong></h6>
+              <p> <%= @project.description %></p>
+            </div>
         </div>
       </div>
     </div>
@@ -104,7 +114,7 @@
               placeholder: "Message ##{@project.chatroom.name}",
               wrapper_html: {class: "flex-grow-1"}
             %>
-            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+            <%= f.submit "Send", class: "btn-uno-chat" %>
           <% end %>
       </div>
     </div>
