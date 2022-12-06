@@ -59,6 +59,7 @@
 
   .text2-flex {
     display: flex;
+    margin-top: 100px;
   }
 
   .text2 {
@@ -86,9 +87,15 @@
 
   .img-flex {
     display: flex;
+    margin-top: 150px;
+  }
+
+  .img {
+    width: 25%;
   }
 
   img {
     width: 100%;
+    height: 450px;
   }
 }
