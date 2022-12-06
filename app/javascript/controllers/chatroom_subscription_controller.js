@@ -3,11 +3,15 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
-  static values = { chatroomId: Number, currentUserId: Number }
+  static values = {
+    chatroomId: Number,
+    currentUserId: Number,
+    currentUserImageUrl: String
+  }
+
   static targets = ["messages"]
 
   connect() {
-    console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
 
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
@@ -37,11 +41,7 @@ export default class extends Controller {
 
   #buildMessageElement(currentUserIsSender, message) {
     return `
-      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
-        <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
-        </div>
-      </div>
     `
   }
 

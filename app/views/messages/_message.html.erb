@@ -1,7 +1,14 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.nickname %></strong>
-  </small>
-  <p><%= message.content %></p>
-  <p class="text-end mb-0 fw-lighter fs-6 text-light"><%= message.created_at.strftime("%b %e at %l:%M %p") %></p>
-</div class="mb-1">
+<div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">
+  <div class="<%= message.user == current_user ? 'sender-style' : 'receiver-style' %>">
+    <div id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.nickname %></strong>
+      </small>
+      <p><%= message.content %></p>
+      <p class="text-end mb-0 fw-lighter"><%= message.created_at.strftime("%b %e at %l:%M %p") %></p>
+    </div class="mb-1">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, transformation: [height: 50, width: 50, crop: :fill, radius: "max"], class: "avatar message-avatar" %>
+    <% end %>
+  </div>
+</div>
