@@ -26,14 +26,13 @@
           <div class="col">
               <% if current_user.liked? @project %>
                 <%= link_to downvote_project_path(@project), data: {turbo_method: :post} do %>
-                  <p class="text-end me-3"><i class="fa-solid fa-thumbs-up"></i></p>
+                  <p class="text-end align-text-top me-3"><i class="fa-solid fa-thumbs-up"></i></p>
                 <% end %>
               <% else %>
                 <%= link_to upvote_project_path(@project), data: {turbo_method: :post} do %>
-                  <p class="text-end me-3"><i class="fa-regular fa-thumbs-up"></i></p>
+                  <p class="text-end align-text-top me-3"><i class="fa-regular fa-thumbs-up"></i></p>
                 <% end %>
               <% end %>
-
               <p class="text-end"><%= pluralize((@project.votes_for.size - @project.get_downvotes.size ), "Supporter") %></p>
           </div>
           <div class="row pt-0 d-flex justify-content-between">
@@ -55,10 +54,10 @@
       </div>
     </div>
     <div>
-      <div class="d-flex justif-content-between pb-5 mt-3">
+      <div class="imagepanorama">
       <% @project.photos.each do |photo| %>
         <div class="imagecard">
-          <%= cl_image_tag photo.key, height: 350, width: 690, crop: :fill %>
+          <%= cl_image_tag photo.key, height: 350, flags: :ignore_aspect_ratio, resize: :fill %>
         </div>
       <% end %>
     </div>

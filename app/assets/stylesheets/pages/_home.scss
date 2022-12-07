@@ -70,6 +70,8 @@
 
   .text2 {
     width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
     color: #3F4D5F;
     font-family: 'source serif pro';
   }
@@ -89,6 +91,7 @@
   .text2 p {
     font-size: 24px;
     opacity: 0.8;
+    word-break: break-word;
   }
 
   .img-flex {
