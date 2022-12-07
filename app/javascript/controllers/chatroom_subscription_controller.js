@@ -40,9 +40,11 @@ export default class extends Controller {
   }
 
   #buildMessageElement(currentUserIsSender, message) {
-    return `
-          ${message}
-    `
+    return `<div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+              <div class="${this.#userStyleClass(currentUserIsSender)}">
+                ${message}
+              </div>
+            </div>`
   }
 
   #justifyClass(currentUserIsSender) {

@@ -100,7 +100,11 @@
 
         <div class="messages" data-chatroom-subscription-target="messages">
           <% @project.chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
+            <div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">
+              <div class="<%= message.user == current_user ? 'sender-style' : 'receiver-style' %>">
+                <%= render "messages/message", message: message %>
+              </div>
+            </div>
           <% end %>
         </div>
 
