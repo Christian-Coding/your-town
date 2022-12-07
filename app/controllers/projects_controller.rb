@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.update(project_params_update)
+    @project.update(project_params)
     redirect_to project_path(@project)
   end
 
@@ -80,10 +80,4 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :description, :address, tag_list: [], photos: [])
   end
-
-  def project_params_update
-    params.require(:project).permit(:title, :description, :address, :progress, tag_list: [], photos: [])
-  end
-
-
 end

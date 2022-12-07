@@ -1,23 +1,44 @@
 <div class="container">
-  <div class="pill-bar">
-    <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Details</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-chatroom-tab" data-bs-toggle="pill" data-bs-target="#pills-chatroom" type="button" role="tab" aria-controls="pills-chatroom" aria-selected="false">Chatroom</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-whiteboard-tab" data-bs-toggle="pill" data-bs-target="#pills-whiteboard" type="button" role="tab" aria-controls="pills-whiteboard" aria-selected="false">Whiteboard</button>
-      </li>
-    </ul>
-  </div>
 
-  <div class="formcardshow">
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-        <div class="container">
-          <div class="row pt-4 d-flex justify-content-between">
+<div class="pill-bar">
+  <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Details</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-chatroom-tab" data-bs-toggle="pill" data-bs-target="#pills-chatroom" type="button" role="tab" aria-controls="pills-chatroom" aria-selected="false">Chatroom</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-whiteboard-tab" data-bs-toggle="pill" data-bs-target="#pills-whiteboard" type="button" role="tab" aria-controls="pills-whiteboard" aria-selected="false">Whiteboard</button>
+    </li>
+  </ul>
+</div>
+
+<div class="formcardshow">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+      <div class="container">
+        <div class="row pt-4 d-flex justify-content-between">
+          <div class="col">
+            <h1><strong><%= @project.title %></strong></h1>
+            <% @project.tags.each do |tag| %>
+              <p class="tag"><%= tag %> </p>
+            <% end %>
+          </div>
+          <div class="col">
+              <% if current_user.liked? @project %>
+                <%= link_to downvote_project_path(@project), data: {turbo_method: :post} do %>
+                  <p class="text-end align-text-top me-3"><i class="fa-solid fa-thumbs-up"></i></p>
+                <% end %>
+              <% else %>
+                <%= link_to upvote_project_path(@project), data: {turbo_method: :post} do %>
+                  <p class="text-end align-text-top me-3"><i class="fa-regular fa-thumbs-up"></i></p>
+                <% end %>
+              <% end %>
+              <p class="text-end"><%= pluralize((@project.votes_for.size - @project.get_downvotes.size ), "Supporter") %></p>
+          </div>
+          <div class="row pt-0 d-flex justify-content-between">
+
             <div class="col">
               <h1><strong><%= @project.title %></strong></h1>
               <% @project.tags.each do |tag| %>
@@ -55,14 +76,15 @@
           </div>
         </div>
       </div>
-      <div>
-        <div class="d-flex justif-content-between pb-5 mt-3">
-        <% @project.photos.each do |photo| %>
-          <div class="imagecard">
-            <%= cl_image_tag photo.key, height: 350, width: 690, crop: :fill %>
-          </div>
-        <% end %>
-      </div>
+
+    </div>
+    <div>
+      <div class="imagepanorama">
+      <% @project.photos.each do |photo| %>
+        <div class="imagecard">
+          <%= cl_image_tag photo.key, height: 350, flags: :ignore_aspect_ratio, resize: :fill %>
+        </div>
+      <% end %>
     </div>
   </div>
   <%#
@@ -99,11 +121,17 @@
           data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
           data-chatroom-subscription-current-user-image-url-value="<%= current_user.photo.key %>">
 
-          <div class="messages" data-chatroom-subscription-target="messages">
-            <% @project.chatroom.messages.each do |message| %>
-              <%= render "messages/message", message: message %>
-            <% end %>
-          </div>
+
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @project.chatroom.messages.each do |message| %>
+            <div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">
+              <div class="<%= message.user == current_user ? 'sender-style' : 'receiver-style' %>">
+                <%= render "messages/message", message: message %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
 
             <%= simple_form_for [@project.chatroom, Message.new],
                 html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
