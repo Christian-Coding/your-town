@@ -1,0 +1,35 @@
+<div class="tab-pane fade" id="pills-chatroom" role="tabpanel" aria-labelledby="pills-chatroom-tab" tabindex="0">
+  <div class="container pt-4 pb-5">
+    <h2><strong>Chatroom</strong></h2>
+    <h3 class="mb-3">Ideas? Comments? Feedback? - Get involved! </h3>
+
+    <div class="container chatroom"
+      data-controller="chatroom-subscription"
+      data-chatroom-subscription-chatroom-id-value="<%= project.chatroom.id %>"
+      data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
+      data-chatroom-subscription-current-user-image-url-value="<%= current_user.photo.key %>">
+
+
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% project.chatroom.messages.each do |message| %>
+        <div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.user == current_user ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+        <%= simple_form_for [project.chatroom, Message.new],
+            html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+        %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Message ##{project.chatroom.name}",
+            wrapper_html: {class: "flex-grow-1"},
+            input_html: { class: "h-100 rounded-left-2 round-left-side" }
+          %>
+          <%= f.submit "Send", class: "btn-uno-chat mb-3 round-right-side" %>
+        <% end %>
+    </div>
+  </div>
+</div>

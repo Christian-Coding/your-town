@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :chatroom, dependent: :destroy
+  belongs_to :chatroom
   belongs_to :user
 end
 
