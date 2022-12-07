@@ -56,9 +56,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div>
         <div class="imagepanorama">
           <% @project.photos.each do |photo| %>
             <div class="imagecard">
@@ -67,7 +64,6 @@
           <% end %>
         </div>
       </div>
-
       <div class="tab-pane fade" id="pills-chatroom" role="tabpanel" aria-labelledby="pills-chatroom-tab" tabindex="0">
         <div class="container pt-4 pb-5">
           <h2><strong>Chatroom</strong></h2>
@@ -86,6 +82,19 @@
                     <%= render "messages/message", message: message %>
                   </div>
                 </div>
+              </div>
+            <% end %>
+          </div>
+              <%= simple_form_for [@project.chatroom, Message.new],
+                  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+              %>
+                <%= f.input :content,
+                  label: false,
+                  placeholder: "Message ##{@project.chatroom.name}",
+                  wrapper_html: {class: "flex-grow-1"},
+                  input_html: { class: "h-100 rounded-left-2 round-left-side" }
+                %>
+                <%= f.submit "Send", class: "btn-uno-chat mb-3 round-right-side" %>
               <% end %>
             </div>
 
@@ -106,7 +115,7 @@
       <div class="tab-pane fade" id="pills-whiteboard" role="tabpanel" aria-labelledby="pills-whiteboard-tab" tabindex="0">
         <div class="container pt-4 pb-5">
           <h2 class="mb-3"><strong>Whiteboard</strong></h2>
-          <iframe width="1296" height="729" src="https://miro.com/app/live-embed/uXjVP8owzx4=/?embedAutoplay=true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+          <iframe width=100% height=500px src="https://miro.com/app/live-embed/uXjVP8owzx4=/?embedAutoplay=true" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
       </div>
 
