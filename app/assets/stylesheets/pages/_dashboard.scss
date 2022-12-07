@@ -11,9 +11,12 @@ tbody {
 
 .dashboard-box {
   background-color: white;
-  padding: 3.1rem;
-  box-shadow: 3px 5px 17px rgba(1, 1, 1, 0.2);
-  border-radius: 16.7px;
+  padding-top: 1.0rem;
+  padding-left: 3.1rem;
+  padding-right: 3.1rem;
+  padding-bottom: 3.1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
   opacity: 1;
 }
 
@@ -22,7 +25,6 @@ tbody {
   height: 34.1px;
   border-radius: 12px;
   --#{$prefix}btn-color: #{$black};
-  --#{$prefix}btn-border-color: transparent !important;
   --bs-btn-hover-border-color:white;
   background-color: white;
 }
@@ -37,8 +39,6 @@ tbody {
   height: 34.1px;
   background-color: white;
   border-radius: 12px;
-  --#{$prefix}btn-color: #{$black};
-  --#{$prefix}btn-border-color: transparent !important;
   --bs-btn-hover-border-color:white;
 }
 
@@ -67,8 +67,9 @@ td {
 
 
 .createp {
-  margin-top: 30px;
-  margin-left: 79.5%;
+  margin-left: 84%;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 
@@ -97,4 +98,8 @@ thead, thead tr {
 
 a {
 color: #0e0000;
+}
+
+.column-width {
+  width: 250px;
 }

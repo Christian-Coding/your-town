@@ -2,45 +2,55 @@
   <h1 class="mt-5 mb-5 text-center"> Welcome <strong> <%= current_user.first_name %></strong></h1>
 
 
-  <div class="dashboard-box d-flex justify-content-evenly">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th class="table-top" scope="col">Project Name</th>
-          <th class="table-top" scope="col">Status</th>
-          <th class="table-top" scope="col">Supporters</th>
-          <th class="table-top" scope="col">Update</th>
-          <th class="table-top"  style="" scope="col">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-          <% @projects.each do | project | %>
-            <tr>
-              <th scope="row">
-              </th>
-              <td><% if project.photos.attached? %>
-                    <%= cl_image_tag project.photos.first.key, height: 90, width: 160, crop: :fill, radius: 5 %>
+
+
+  <div class="dashboard-box">
+    <div class="create-button">
+      <%= link_to "Create new project", new_project_path, class: "btn btn-uno createp" %>
+    </div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th class="table-top" scope="col"></th>
+            <th class="table-top" scope="col">Project Name</th>
+            <th class="table-top" scope="col">Status</th>
+            <th class="table-top" scope="col">Supporters</th>
+            <th class="table-top" scope="col">Update</th>
+            <th class="table-top"  style="" scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @projects.each do | project | %>
+              <tr>
+                <th scope="row">
+                </th>
+                <td class="column-width">
+                  <% if project.photos.attached? %>
+                    <%= cl_image_tag project.photos.first.key, height: 113, width: 200, crop: :fill, radius: 5 %>
                   <% end %>
-                  <%= link_to  project_path(project.id) do %>
-                  <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>
-              </td>
-              <td> <%= project.progress %> </td>
-              <td> <%= (project.votes_for.size - project.get_downvotes.size ) %> </td>
+                </td>
+                <td>
+                    <%= link_to  project_path(project.id) do %>
+                    <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>
+                </td>
+                <td>
+                  <%= project.progress %>
+                </td>
+                <td>
+                  <%= (project.votes_for.size - project.get_downvotes.size ) %> </td>
                 <td>
                   <%= link_to "", edit_project_path(project), class: "dashboard-hover btn btn-primary fa-solid fa-pen-to-square", id: "dashboard-button" %>
                 </td>
                 <td>
                   <%= link_to "", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dashboard-hover btn btn-primary fa-solid fa-trash", id: "dashboard-red" %>
                 </td>
-            </tr>
+              </tr>
+              <% end %>
             <% end %>
-          <% end %>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="create-button">
-  <%= link_to "Create new project", new_project_path, class: "btn btn-uno createp" %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
