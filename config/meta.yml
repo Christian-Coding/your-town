@@ -1,0 +1,6 @@
+meta_name: "YourTown"
+meta_title: "YourTown - Better Living"
+meta_description: "Cities have not been human-centered for decades.
+Ideas are needed to create better cities."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@your_twitter_account"   # required for Twitter Cards
