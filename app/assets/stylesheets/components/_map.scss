@@ -6,9 +6,19 @@
   text-align: center;
   font-family: "source sans pro";
   width: 400px;
-  height: 530px;
+  height: 100%;
   border-radius: 4px;
   padding: 0px;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    // top: -4px;
+    // border: 1px solid #cccccc;
+    color: black;
+    transform: scale(1.075);
+  }
 
   h2 {
     margin-top: 18px;
@@ -17,14 +27,4 @@
   p {
     font-size: 16px;
   }
-
-  a {
-    background-color: #F6F8FA;
-  }
-}
-
-
-.viewdetails:hover {
-  background-color: #C8CFD8;
-  color: #F6F8FA;
 }

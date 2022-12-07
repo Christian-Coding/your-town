@@ -1,12 +1,13 @@
-<% if project.photos.attached? %>
-  <%= cl_image_tag project.photos.first.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<%= link_to project_path(project.id), class: "mapboxgl-popup-content" do %>
+  <% if project.photos.attached? %>
+    <%= cl_image_tag project.photos.first.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 
-<h2><%= project.title %></h2>
-<p><%= project.address %></p>
-<% project.tags.each do |tag| %>
-  <p class="tag"><%= tag %> </p>
-<% end %>
-<h2><i class="fa-solid fa-heart"></i> Supporters: <%= project.votes_for.size - project.get_downvotes.size  %></h2>
+  <h2><%= project.title %></h2>
+  <p><%= project.address %></p>
 
-<%= link_to "View Details", project_path(project.id), class: "btn w-100 viewdetails" %>
+  <% project.tags.each do |tag| %>
+    <p class="tag"><%= tag %> </p>
+  <% end %>
+  <h2><i class="fa-solid fa-thumbs-up"></i>  <%= project.votes_for.size - project.get_downvotes.size  %></h2>
+<% end %>
