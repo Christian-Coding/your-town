@@ -3,9 +3,21 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
+  position: relative;
 
   h1 {
     margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .sup {
+    margin: 0;
+    position: absolute;
+    right: 0px;
+    top: 72px
   }
 }
 
@@ -28,6 +40,9 @@
 }
 
 .creator {
+  position:absolute;
+  bottom: 10px;
+  left: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,4 +51,10 @@
     margin: 0;
   }
 
+}
+
+.col1 {
+  position: relative;
+  padding: 14px;
+  padding-bottom: 80px;
 }
