@@ -16,7 +16,7 @@
                 <p class=""><i class="fa-regular fa-thumbs-up"></i></p>
                 <% end %>
               <% end %>
-              <p class="sup"><%= pluralize((project.votes_for.size - project.get_downvotes.size ), "Supporter") %></p>
+              <p class="sup"><%= pluralize((100 + project.votes_for.size - project.get_downvotes.size ), "Supporter") %></p>
             </div>
 
         </div>
