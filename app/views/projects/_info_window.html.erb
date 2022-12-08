@@ -4,10 +4,10 @@
   <% end %>
 
   <h2><%= project.title %></h2>
-  <p><%= project.address %></p>
-
   <% project.tags.each do |tag| %>
     <p class="tag"><%= tag %> </p>
   <% end %>
+
+  <p><%= project.address %></p>
   <h2><i class="fa-solid fa-thumbs-up"></i>  <%= project.votes_for.size - project.get_downvotes.size  %></h2>
 <% end %>

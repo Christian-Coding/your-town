@@ -1,0 +1,60 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  position: relative;
+
+  h1 {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .sup {
+    margin: 0;
+    position: absolute;
+    right: 0px;
+    top: 72px
+  }
+}
+
+.details {
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.address {
+  padding-top: 32px;
+  opacity: 0.6;
+}
+
+.nav-link {
+
+  &:hover {
+    background-color: rgba(141, 141, 141, 0.2);
+    transition-duration: 0.3s;
+  }
+}
+
+.creator {
+  position:absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+}
+
+.col1 {
+  position: relative;
+  padding: 14px;
+  padding-bottom: 80px;
+}

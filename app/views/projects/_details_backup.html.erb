@@ -1,0 +1,47 @@
+<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+  <div class="container">
+    <div class="row pt-4 d-flex justify-content-between">
+      <div class="col">
+        <h1><strong><%= project.title %></strong></h1>
+        <% project.tags.each do |tag| %>
+          <p class="tag"><%= tag %> </p>
+        <% end %>
+      </div>
+      <div class="col">
+          <% if current_user.liked? project %>
+            <%= link_to downvote_project_path(project), data: {turbo_method: :post} do %>
+              <p class="text-end align-text-top me-3"><i class="fa-solid fa-thumbs-up"></i></p>
+            <% end %>
+          <% else %>
+            <%= link_to upvote_project_path(project), data: {turbo_method: :post} do %>
+              <p class="text-end align-text-top me-3"><i class="fa-regular fa-thumbs-up"></i></p>
+            <% end %>
+          <% end %>
+          <p class="text-end"><%= pluralize((project.votes_for.size - project.get_downvotes.size ), "Supporter") %></p>
+      </div>
+        <div class="row pt-0 d-flex justify-content-between">
+          <div class="col">
+            <div class="carddetail">
+              <h6 class="mt-1"><strong> Creator</strong></h6>
+              <p> <%= project.user.first_name %> <%= project.user.last_name %></p>
+              <h6 class="mt-4"><strong> Status</strong></h6>
+              <p><%= project.progress %></p>
+              <h6 class="mt-4"><strong> Location</strong></h6>
+              <p> <%= project.address %></p>
+            </div>
+          </div>
+          <div class="col">
+            <h6 class="mt-1"><strong>Description</strong></h6>
+            <p> <%= project.description %></p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="imagepanorama">
+    <% project.photos.each do |photo| %>
+      <div class="imagecard">
+        <%= cl_image_tag photo.key, height: 350, flags: :ignore_aspect_ratio, resize: :fill %>
+      </div>
+    <% end %>
+  </div>
+</div>
