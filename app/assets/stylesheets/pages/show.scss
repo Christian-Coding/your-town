@@ -1,0 +1,39 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.details {
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.address {
+  padding-top: 32px;
+  opacity: 0.6;
+}
+
+.nav-link {
+
+  &:hover {
+    background-color: rgba(141, 141, 141, 0.2);
+    transition-duration: 0.3s;
+  }
+}
+
+.creator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+}
