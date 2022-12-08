@@ -9,5 +9,5 @@
   <% end %>
 
   <p><%= project.address %></p>
-  <h2><i class="fa-solid fa-thumbs-up"></i>  <%= project.votes_for.size - project.get_downvotes.size  %></h2>
+  <h2><i class="fa-solid fa-thumbs-up"></i>  <%= (100 + project.votes_for.size - project.get_downvotes.size)  %></h2>
 <% end %>
