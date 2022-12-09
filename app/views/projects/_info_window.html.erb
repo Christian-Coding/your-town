@@ -8,6 +8,6 @@
     <p class="tag"><%= tag %> </p>
   <% end %>
 
-  <p><%= project.address %></p>
-  <h2><i class="fa-solid fa-thumbs-up"></i>  <%= (100 + project.votes_for.size - project.get_downvotes.size)  %></h2>
+  <p class="address-p"><%= project.address %></p>
+  <h2 class="thumbs-info-page"><i class="fa-solid fa-thumbs-up"></i>  <%= (100 + project.votes_for.size - project.get_downvotes.size)  %></h2>
 <% end %>

@@ -35,7 +35,7 @@
                     <%= link_to "#{project.title}", project_path(project.id), class: "link-dark text-decoration-none fs-6 fw-semibold" %>
                 </td>
                 <td>
-                  <%= (project.votes_for.size - project.get_downvotes.size ) %> </td>
+                  <%= (100 + project.votes_for.size - project.get_downvotes.size ) %> </td>
                 <td>
                   <%= link_to "", edit_project_path(project), class: "dashboard-hover btn btn-primary fa-solid fa-pen-to-square", id: "dashboard-button" %>
                 </td>
