@@ -32,7 +32,7 @@
           </p>
         </div>
         <div class="creator">
-          <p>Project by </p>
+          <p class="me-2">Project by</p>
           <% if project.user.photo.attached? %>
             <%= cl_image_tag project.user.photo.key, class: "avatar" %>
           <% end %>

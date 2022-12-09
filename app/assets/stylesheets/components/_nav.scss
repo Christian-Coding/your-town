@@ -4,10 +4,24 @@
 
 .nav-item {
   padding: 10px;
-  background-color: transparent;
+  color: #3484FF;
+  background:
+    linear-gradient(currentColor 0 0)
+    0 100% /var(--d, 0) 3px
+    no-repeat;
+  transition:0.5s;
 }
+
+.nav-item:hover {
+  --d: 100%;
+}
+
+.nav-link:hover {
+  background-color: none;
+}
+
+
 
 .nav-item.dropdown {
   background-color: transparent;
 }
-

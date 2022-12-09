@@ -22,6 +22,9 @@
 
 .message-avatar {
   position:relative;
+  border: 0px;
+  height: 35px;
+  width: 35px;
 }
 
 .message {
@@ -34,7 +37,7 @@ p {
 
 .text-end {
   position: relative;
-  bottom: -45px;
+  bottom: -40px;
   color: black;
   font-size: 14px;
 }
